@@ -227,16 +227,20 @@ a{color:var(--accent)}
 
 /* ---------- pricing ---------- */
 .band--price{background:var(--hero-bg);color:var(--hero-ink)}
-.price-card{background:var(--surface);color:var(--ink);border-radius:18px;padding:36px 32px;margin-top:28px}
-.price-top{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:12px;border-bottom:1px solid var(--line);padding-bottom:24px}
-.price-amount{font-family:var(--font-display);font-size:48px;font-weight:600;line-height:1}
-.price-amount span{font-family:var(--font-body);font-size:16px;font-weight:600;color:var(--ink-soft)}
+.price-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:28px;align-items:stretch}
+.price-card{background:var(--surface);color:var(--ink);border-radius:18px;padding:32px 28px;display:flex;flex-direction:column}
+.price-card.is-reco{box-shadow:0 0 0 2px var(--accent)}
+.price-pill{align-self:flex-start;font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:var(--accent-soft);color:var(--accent-ink);padding:4px 10px;border-radius:999px;margin-bottom:14px}
+.price-top{border-bottom:1px solid var(--line);padding-bottom:22px}
+.price-amount{font-family:var(--font-display);font-size:40px;font-weight:600;line-height:1}
+.price-amount span{font-family:var(--font-body);font-size:15px;font-weight:600;color:var(--ink-soft)}
 .price-name{font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
-.price-features{display:grid;grid-template-columns:repeat(2,1fr);gap:12px 24px;margin-top:24px}
-.price-features div{display:flex;gap:10px;align-items:flex-start;font-size:14.5px}
+.price-for{font-size:13.5px;color:var(--ink-soft);margin-top:8px;line-height:1.5}
+.price-features{display:flex;flex-direction:column;gap:11px;margin-top:20px;flex:1}
+.price-features div{display:flex;gap:10px;align-items:flex-start;font-size:14px;line-height:1.4}
 .price-features div::before{content:"\2713";flex:none;color:var(--good);font-weight:700;margin-top:1px}
-.price-roi{margin-top:24px;padding-top:20px;border-top:1px solid var(--line);font-size:14.5px;color:var(--ink-soft);line-height:1.6}
-@media (max-width:680px){.price-features{grid-template-columns:1fr}}
+.price-roi{margin-top:28px;padding-top:20px;border-top:1px solid var(--hero-line);font-size:14.5px;color:var(--hero-ink-soft);line-height:1.6}
+@media (max-width:760px){.price-grid{grid-template-columns:1fr}}
 
 /* ---------- next steps ---------- */
 .steps{display:flex;flex-direction:column;gap:12px;margin-top:28px}
@@ -473,22 +477,43 @@ footer p{font-size:13px;color:var(--ink-soft);line-height:1.6}
 </section>
 <section class="band band--price band--tight">
   <div class="wrap">
-    <div class="price-card">
-      <div class="price-top">
-        <div><div class="price-name">Store care plan</div><div class="price-amount">&pound;200<span>&nbsp;/ month</span></div></div>
+    <div class="price-grid">
+
+      <div class="price-card">
+        <div class="price-top">
+          <div class="price-name">Store care</div>
+          <div class="price-amount">&pound;150<span>&nbsp;/ month</span></div>
+          <p class="price-for">Keeps the store healthy, secure and up to date.</p>
+        </div>
+        <div class="price-features">
+          <div>Store health, security &amp; speed checks</div>
+          <div>Up to 20 product uploads/edits a month</div>
+          <div>Barcodes, stock &amp; prescription-item compliance</div>
+          <div>Small theme &amp; content changes (up to 2 hrs)</div>
+          <div>Monthly report</div>
+        </div>
       </div>
-      <div class="price-features">
-        <div>Store health, security &amp; speed checks</div>
-        <div>Product uploads, edits &amp; feed upkeep</div>
-        <div>Barcodes, stock &amp; prescription-item compliance</div>
-        <div>Klaviyo recovery flows + 1 campaign/month</div>
-        <div>Rewards &amp; referral programme management</div>
-        <div>1 SEO blog article a month</div>
-        <div>Small theme &amp; content changes on request</div>
-        <div>Monthly report with next month's priorities</div>
+
+      <div class="price-card is-reco">
+        <div class="price-pill">Recommended</div>
+        <div class="price-top">
+          <div class="price-name">Store growth</div>
+          <div class="price-amount">&pound;250<span>&nbsp;/ month</span></div>
+          <p class="price-for">Everything in Store Care, plus active sales growth.</p>
+        </div>
+        <div class="price-features">
+          <div>Up to 40 product uploads/edits a month</div>
+          <div>Klaviyo recovery flows + 1 campaign/month</div>
+          <div>Rewards &amp; referral programme management</div>
+          <div>1 SEO blog article a month</div>
+          <div>Instagram &amp; Shop app listing upkeep</div>
+          <div>Small theme &amp; content changes (up to 4 hrs)</div>
+          <div>Monthly report + strategy call</div>
+        </div>
       </div>
-      <p class="price-roi">At an average order of &pound;150 and a typical skincare margin of roughly 35%, around four extra orders a month &mdash; a 16% lift &mdash; covers the plan. Recovered abandoned checkouts and the rewards programme alone are built to deliver that. New pages, redesigns and ad management are quoted separately.</p>
+
     </div>
+    <p class="price-roi">At an average order of &pound;150 and a typical skincare margin of roughly 35%, four to six extra orders a month covers either plan &mdash; a lift that recovered abandoned checkouts and the rewards programme alone are built to deliver. New pages, redesigns and ad management are quoted separately.</p>
   </div>
 </section>
 
