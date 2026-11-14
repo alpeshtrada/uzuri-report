@@ -21,10 +21,10 @@
   --warn-soft:#FBF0DC;
   --bad:#A23B33;
   --bad-soft:#FBE9E6;
-  --hero-bg:#2E1A49;
-  --hero-ink:#F4EFFA;
-  --hero-ink-soft:#C9B9E0;
-  --hero-line:rgba(244,239,250,0.16);
+  --hero-bg:#EEE7F6;
+  --hero-ink:#241533;
+  --hero-ink-soft:#5B5366;
+  --hero-line:rgba(46,26,73,0.14);
   --chart-grid:#E3DED6;
   --chart-bar:#C9BBDB;
   --chart-bar-strong:#422566;
@@ -52,10 +52,10 @@
     --warn-soft:#332A17;
     --bad:#E29289;
     --bad-soft:#331F1C;
-    --hero-bg:#120D1B;
+    --hero-bg:#241A33;
     --hero-ink:#F4EFFA;
-    --hero-ink-soft:#AE9BCB;
-    --hero-line:rgba(244,239,250,0.14);
+    --hero-ink-soft:#C3B3DD;
+    --hero-line:rgba(244,239,250,0.16);
     --chart-grid:#352C42;
     --chart-bar:#4A3C5C;
     --chart-bar-strong:#B79BDD;
@@ -81,10 +81,10 @@
   --warn-soft:#332A17;
   --bad:#E29289;
   --bad-soft:#331F1C;
-  --hero-bg:#120D1B;
+  --hero-bg:#241A33;
   --hero-ink:#F4EFFA;
-  --hero-ink-soft:#AE9BCB;
-  --hero-line:rgba(244,239,250,0.14);
+  --hero-ink-soft:#C3B3DD;
+  --hero-line:rgba(244,239,250,0.16);
   --chart-grid:#352C42;
   --chart-bar:#4A3C5C;
   --chart-bar-strong:#B79BDD;
@@ -228,8 +228,8 @@ a{color:var(--accent)}
 /* ---------- pricing ---------- */
 .band--price{background:var(--hero-bg);color:var(--hero-ink)}
 .price-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:28px;align-items:stretch}
-.price-card{background:var(--surface);color:var(--ink);border-radius:18px;padding:32px 28px;display:flex;flex-direction:column}
-.price-card.is-reco{box-shadow:0 0 0 2px var(--accent)}
+.price-card{background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:18px;padding:32px 28px;display:flex;flex-direction:column}
+.price-card.is-reco{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
 .price-pill{align-self:flex-start;font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:var(--accent-soft);color:var(--accent-ink);padding:4px 10px;border-radius:999px;margin-bottom:14px}
 .price-top{border-bottom:1px solid var(--line);padding-bottom:22px}
 .price-amount{font-family:var(--font-display);font-size:40px;font-weight:600;line-height:1}
