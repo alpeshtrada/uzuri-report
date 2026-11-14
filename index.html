@@ -4,6 +4,7 @@
 /* Layout: single-column editorial report. Full-width colour bands for the hero,
    fixes and pricing chapters; an 820px reading column for everything else. */
 :root{
+  color-scheme:light;
   --bg:#F7F5F2;
   --bg-sunken:#EFEBE5;
   --surface:#FFFFFF;
@@ -32,64 +33,8 @@
   --font-display:'Fraunces',Georgia,serif;
   --font-body:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 }
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    color-scheme:dark;
-    --bg:#17131E;
-    --bg-sunken:#1F1A28;
-    --surface:#211B2B;
-    --ink:#F1ECF7;
-    --ink-soft:#B3A8C2;
-    --line:#352C42;
-    --accent:#B79BDD;
-    --accent-soft:#2B2138;
-    --accent-ink:#E7DCF6;
-    --gold:#D8B573;
-    --gold-soft:#2E2718;
-    --good:#8FCBAA;
-    --good-soft:#1C2B23;
-    --warn:#E4B868;
-    --warn-soft:#332A17;
-    --bad:#E29289;
-    --bad-soft:#331F1C;
-    --hero-bg:#241A33;
-    --hero-ink:#F4EFFA;
-    --hero-ink-soft:#C3B3DD;
-    --hero-line:rgba(244,239,250,0.16);
-    --chart-grid:#352C42;
-    --chart-bar:#4A3C5C;
-    --chart-bar-strong:#B79BDD;
-    --chart-ref:#D8B573;
-  }
-}
-:root[data-theme="dark"]{
-  color-scheme:dark;
-  --bg:#17131E;
-  --bg-sunken:#1F1A28;
-  --surface:#211B2B;
-  --ink:#F1ECF7;
-  --ink-soft:#B3A8C2;
-  --line:#352C42;
-  --accent:#B79BDD;
-  --accent-soft:#2B2138;
-  --accent-ink:#E7DCF6;
-  --gold:#D8B573;
-  --gold-soft:#2E2718;
-  --good:#8FCBAA;
-  --good-soft:#1C2B23;
-  --warn:#E4B868;
-  --warn-soft:#332A17;
-  --bad:#E29289;
-  --bad-soft:#331F1C;
-  --hero-bg:#241A33;
-  --hero-ink:#F4EFFA;
-  --hero-ink-soft:#C3B3DD;
-  --hero-line:rgba(244,239,250,0.16);
-  --chart-grid:#352C42;
-  --chart-bar:#4A3C5C;
-  --chart-bar-strong:#B79BDD;
-  --chart-ref:#D8B573;
-}
+/* This page always renders in its light palette, regardless of the viewer's
+   system or browser theme setting — it is a fixed report, not a themed app. */
 
 *{box-sizing:border-box}
 body{
