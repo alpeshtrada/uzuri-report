@@ -12,15 +12,21 @@
 body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.6;
   padding-left:max(16px, env(safe-area-inset-left,0px));padding-right:max(16px, env(safe-area-inset-right,0px));}
 .wrap{max-width:720px;margin:0 auto;padding-block:64px}
-h1{font-family:var(--font-display);font-weight:600;font-size:clamp(28px,4vw,38px);margin:0 0 10px}
+h1{font-family:var(--font-display);font-weight:600;font-size:clamp(26px,4vw,34px);margin:0 0 10px}
 .updated{font-size:13.5px;color:var(--ink-soft);margin-bottom:40px}
-h2{font-family:var(--font-display);font-weight:600;font-size:20px;margin:40px 0 12px}
+h2{font-family:var(--font-display);font-weight:600;font-size:19px;margin:36px 0 10px}
 p{margin:0 0 14px}
 ul{margin:0 0 14px;padding-left:20px}
 li{margin-bottom:8px}
 .flag{background:var(--accent-soft);color:var(--accent-ink);border-radius:10px;padding:14px 18px;font-size:14px;margin-bottom:36px}
 .flag b{display:block;margin-bottom:4px}
+.need{background:#FBF0DC;color:#5B4310;padding:1px 5px;border-radius:4px;font-weight:600}
 a{color:var(--accent)}
+.toc{font-size:13.5px;color:var(--ink-soft);margin-bottom:8px}
+.toc ol{margin:0;padding-left:20px;columns:2;column-gap:28px}
+.toc li{margin-bottom:4px;break-inside:avoid}
+hr{border:none;border-top:1px solid var(--line);margin:44px 0}
+footer{font-size:13px;color:var(--ink-soft);line-height:1.6}
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,35 +34,90 @@ a{color:var(--accent)}
 
 <div class="wrap">
   <h1>Store Care &amp; Growth - Terms of Service</h1>
-  <p class="updated">Last updated: 14 November 2026</p>
+  <p class="updated">Quasol Ltd &middot; Last updated: 14 November 2026</p>
 
   <div class="flag">
-    <b>Draft for review</b>
-    This is a starting template, not finished legal text. All your details are filled in, but have it checked by a solicitor or a template service before relying on it for real contracts, especially section 4's liability wording.
+    <b>Before you publish this</b>
+    This covers the standard areas a real services contract needs - fees, liability, data protection, ownership of work, ending the agreement - in plain English. Two real facts are still missing, marked <span class="need">like this</span>: your company number and registered office address, from your incorporation documents or Companies House. Have a solicitor or a contract-template service look it over before you rely on it for real client agreements, especially sections 10 and 11.
   </div>
 
-  <h2>1. The service</h2>
-  <p>These terms cover the monthly Store Care and Store Growth plans provided by Quasol Ltd ("we", "us") to the client who subscribes ("you"). Each plan's included work is described on the plan page you subscribed from; anything outside that scope (new pages, redesigns, ad campaign management, one-off projects) is quoted and agreed separately.</p>
+  <p class="toc">Sections</p>
+  <div class="toc">
+    <ol>
+      <li>These terms</li>
+      <li>The service</li>
+      <li>Fees, billing &amp; minimum term</li>
+      <li>Late or failed payment</li>
+      <li>Cancellation &amp; ending the agreement</li>
+      <li>Changing plans</li>
+      <li>What's not guaranteed</li>
+      <li>Ownership of work</li>
+      <li>Your responsibilities</li>
+      <li>Confidentiality &amp; data protection</li>
+      <li>Liability</li>
+      <li>Events outside our control</li>
+      <li>General</li>
+      <li>Governing law</li>
+      <li>Company &amp; contact</li>
+    </ol>
+  </div>
 
-  <h2>2. Billing &amp; minimum term</h2>
+  <hr>
+
+  <h2>1. These terms</h2>
+  <p>These terms govern the Store Care and Store Growth monthly plans supplied by Quasol Ltd ("we", "us", "our") to the client who subscribes to a plan ("you", "your"). By subscribing through our checkout, you agree to these terms. Work outside your plan's scope - new pages, redesigns, ad campaign management, one-off projects - is quoted and agreed separately, and isn't covered here unless we confirm otherwise in writing.</p>
+
+  <h2>2. The service</h2>
+  <p>Each plan's included work is set out on the plan page you subscribed from. We may reasonably adjust or improve the specific tasks within your plan over time, provided the overall level of service doesn't reduce without telling you first.</p>
+
+  <h2>3. Fees, billing &amp; minimum term</h2>
   <ul>
-    <li>This plan has a minimum term of 12 months from your start date, billed monthly in advance, in GBP, via Stripe.</li>
-    <li>After the initial 12 months, your plan continues automatically on a rolling basis until cancelled.</li>
-    <li>Prices may change with at least 60 days' notice before the change takes effect.</li>
+    <li>This plan has a minimum term of 12 months from your start date (the "minimum term").</li>
+    <li>Fees are billed monthly in advance, in GBP, by card via Stripe.</li>
+    <li>Prices shown don't currently include VAT. If we become VAT-registered, VAT will be added at the prevailing rate from that point.</li>
+    <li>We may change our fees with at least 60 days' written notice. Continuing your subscription after a price change takes effect means you accept the new price.</li>
+    <li>After the minimum term, your plan continues automatically on a rolling monthly basis until cancelled under section 5.</li>
   </ul>
 
-  <h2>3. Cancellation</h2>
-  <p>You may cancel by giving at least 2 months' (60 days') written notice to hello@quasol.co.uk. Cancellation takes effect at the end of that notice period, and not before your 12-month minimum term has ended. We don't offer refunds for the unused part of a billing period, or for the remainder of the minimum term, unless required by law.</p>
+  <h2>4. Late or failed payment</h2>
+  <p>If a payment fails, we'll try to take it again and let you know. If payment remains unpaid for 14 days, we may pause work on your plan until it's settled, and that pause doesn't extend or pause your minimum term.</p>
 
-  <h2>4. What's not guaranteed</h2>
-  <p>We do our best work on your store's health, data quality and marketing setup, but we can't guarantee specific sales, ranking or revenue outcomes - those also depend on your products, pricing, market conditions and decisions outside our plans (such as ad spend). Any figures referenced in our reports are estimates or sourced third-party statistics, not promises.</p>
-
-  <h2>5. Access &amp; responsibilities</h2>
-  <p>You'll give us the access we reasonably need to your store, apps and marketing tools to do this work. You're responsible for the accuracy of product, pricing and legal information (such as prescription-item status) that you provide to us.</p>
+  <h2>5. Cancellation &amp; ending the agreement</h2>
+  <p>You may cancel your plan by giving at least 2 months' (60 days') written notice to hello@quasol.co.uk. Cancellation takes effect at the end of that notice period, and not before your 12-month minimum term has ended. We don't offer refunds for the unused part of a billing period, or for the remainder of the minimum term, unless required by law.</p>
+  <p>Either of us may end this agreement immediately by writing to the other if: the other party seriously breaches these terms and doesn't fix it within 14 days of being asked to; or the other party becomes insolvent or stops trading. Ending the agreement this way doesn't affect fees already owed up to that point.</p>
 
   <h2>6. Changing plans</h2>
-  <p>You can move between Store Care and Store Growth at any time; the new price applies from your next billing date.</p>
+  <p>You can move between Store Care and Store Growth at any time; the new price and included work apply from your next billing date, and your original minimum term and start date carry over to the new plan.</p>
 
-  <h2>7. Contact</h2>
+  <h2>7. What's not guaranteed</h2>
+  <p>We do our best work on your store's health, data quality and marketing setup, but we can't guarantee specific sales, ranking or revenue outcomes - those also depend on your products, pricing, market conditions and decisions outside our plans (such as ad spend). Any figures referenced in our reports are estimates or sourced third-party statistics, not promises.</p>
+
+  <h2>8. Ownership of work</h2>
+  <p>Once you've paid for it, you own the specific pages, copy, images and configuration we create for your store as part of your plan. We keep ownership of our own pre-existing tools, templates, processes and know-how, and may reuse general techniques and learnings - never your confidential or customer data - on other projects.</p>
+
+  <h2>9. Your responsibilities</h2>
+  <p>You'll give us the access we reasonably need to your store, apps and marketing tools to deliver your plan, and remove that access promptly once the agreement ends. You're responsible for the accuracy of product, pricing and legal information you give us (including whether a product requires a prescription, age restriction or other compliance step), and for making sure your own use of the store complies with the law and with any platform's (Shopify, Google, Meta, Stripe) own rules.</p>
+
+  <h2>10. Confidentiality &amp; data protection</h2>
+  <p>We'll each keep the other's confidential business information private, and only use it to deliver or receive the services under this agreement, except where the law requires otherwise.</p>
+  <p>Where we handle personal data on your behalf - such as your customers' details in your store or email platform - while providing your plan, we'll handle it in line with UK data protection law, keep it secure, use it only to deliver your plan, and help you respond to any data subject request that relates to our work. We can provide a separate data processing agreement if you need one.</p>
+
+  <h2>11. Liability</h2>
+  <p>Nothing in these terms limits either party's liability for death or personal injury caused by negligence, or for fraud.</p>
+  <p>Subject to that, our total liability to you under this agreement in any 12-month period is capped at the fees you've paid us in that period, and we're not liable for any indirect or consequential loss, loss of profit, loss of data, or loss of business, even if we knew it was possible.</p>
+
+  <h2>12. Events outside our control</h2>
+  <p>Neither of us is liable for a delay or failure caused by something reasonably outside our control - such as a platform outage, internet failure, or a serious illness or family emergency affecting the people delivering your plan - as long as we tell the other party and resume as soon as reasonably possible.</p>
+
+  <h2>13. General</h2>
+  <p>These terms, together with the plan page you subscribed from, are the whole agreement between us for your plan, and replace any earlier discussions about it. We may update these terms with at least 30 days' notice, posted at this same page; continuing your subscription after that date means you accept the update. You can't transfer this agreement to someone else without our written consent; we may use subcontractors to deliver the work, but we stay responsible for it. If any part of these terms is found invalid, the rest stays in effect.</p>
+
+  <h2>14. Governing law</h2>
+  <p>These terms are governed by the law of England and Wales, and any dispute will be dealt with by the courts of England and Wales.</p>
+
+  <h2>15. Company &amp; contact</h2>
+  <p>Quasol Ltd, a company registered in England and Wales (company number: <span class="need">add company number</span>), registered office: <span class="need">add registered office address</span>.</p>
   <p>Questions about these terms: hello@quasol.co.uk, or 07471 551858.</p>
+
+  <footer>&copy; Quasol Ltd. This document is a plain-English summary for clients and is not a substitute for independent legal advice.</footer>
 </div>
