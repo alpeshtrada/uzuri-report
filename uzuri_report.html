@@ -1,0 +1,618 @@
+<title>Uzuri Growth Report</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/* Layout: single-column editorial report. Full-width colour bands for the hero,
+   fixes and pricing chapters; an 820px reading column for everything else. */
+:root{
+  --bg:#F7F5F2;
+  --bg-sunken:#EFEBE5;
+  --surface:#FFFFFF;
+  --ink:#201A28;
+  --ink-soft:#5B5366;
+  --line:#E3DED6;
+  --accent:#422566;
+  --accent-soft:#F1EBF7;
+  --accent-ink:#2E1A49;
+  --gold:#A9823C;
+  --gold-soft:#F6EEDE;
+  --good:#2E6E4E;
+  --good-soft:#E6F2EB;
+  --warn:#9A6B1E;
+  --warn-soft:#FBF0DC;
+  --bad:#A23B33;
+  --bad-soft:#FBE9E6;
+  --hero-bg:#2E1A49;
+  --hero-ink:#F4EFFA;
+  --hero-ink-soft:#C9B9E0;
+  --hero-line:rgba(244,239,250,0.16);
+  --chart-grid:#E3DED6;
+  --chart-bar:#C9BBDB;
+  --chart-bar-strong:#422566;
+  --chart-ref:#A9823C;
+  --font-display:'Fraunces',Georgia,serif;
+  --font-body:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#17131E;
+    --bg-sunken:#1F1A28;
+    --surface:#211B2B;
+    --ink:#F1ECF7;
+    --ink-soft:#B3A8C2;
+    --line:#352C42;
+    --accent:#B79BDD;
+    --accent-soft:#2B2138;
+    --accent-ink:#E7DCF6;
+    --gold:#D8B573;
+    --gold-soft:#2E2718;
+    --good:#8FCBAA;
+    --good-soft:#1C2B23;
+    --warn:#E4B868;
+    --warn-soft:#332A17;
+    --bad:#E29289;
+    --bad-soft:#331F1C;
+    --hero-bg:#120D1B;
+    --hero-ink:#F4EFFA;
+    --hero-ink-soft:#AE9BCB;
+    --hero-line:rgba(244,239,250,0.14);
+    --chart-grid:#352C42;
+    --chart-bar:#4A3C5C;
+    --chart-bar-strong:#B79BDD;
+    --chart-ref:#D8B573;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#17131E;
+  --bg-sunken:#1F1A28;
+  --surface:#211B2B;
+  --ink:#F1ECF7;
+  --ink-soft:#B3A8C2;
+  --line:#352C42;
+  --accent:#B79BDD;
+  --accent-soft:#2B2138;
+  --accent-ink:#E7DCF6;
+  --gold:#D8B573;
+  --gold-soft:#2E2718;
+  --good:#8FCBAA;
+  --good-soft:#1C2B23;
+  --warn:#E4B868;
+  --warn-soft:#332A17;
+  --bad:#E29289;
+  --bad-soft:#331F1C;
+  --hero-bg:#120D1B;
+  --hero-ink:#F4EFFA;
+  --hero-ink-soft:#AE9BCB;
+  --hero-line:rgba(244,239,250,0.14);
+  --chart-grid:#352C42;
+  --chart-bar:#4A3C5C;
+  --chart-bar-strong:#B79BDD;
+  --chart-ref:#D8B573;
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--font-body);
+  font-size:16px;
+  line-height:1.55;
+  padding-left:max(16px, env(safe-area-inset-left,0px));
+  padding-right:max(16px, env(safe-area-inset-right,0px));
+}
+h1,h2,h3{font-family:var(--font-display);font-weight:600;text-wrap:balance;margin:0}
+p{margin:0}
+img{max-width:100%}
+.wrap{max-width:820px;margin:0 auto}
+.band{padding-block:72px}
+.band--tight{padding-block:48px}
+.eyebrow{
+  font-family:var(--font-body);
+  font-size:12.5px;
+  font-weight:700;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--accent);
+}
+.lead{font-size:18px;color:var(--ink-soft);line-height:1.65}
+a{color:var(--accent)}
+.source{font-size:12.5px;color:var(--ink-soft)}
+.source a{color:inherit;text-decoration:underline;text-decoration-color:var(--line)}
+
+/* ---------- hero ---------- */
+.hero{background:var(--hero-bg);color:var(--hero-ink);position:relative;overflow:hidden}
+.hero::before{
+  content:"";position:absolute;inset:-20% -10% auto auto;width:560px;height:560px;
+  border-radius:50%;border:1px solid var(--hero-line);
+}
+.hero::after{
+  content:"";position:absolute;inset:auto auto -30% -15%;width:420px;height:420px;
+  border-radius:50%;border:1px solid var(--hero-line);
+}
+.hero-inner{position:relative;z-index:1;padding-block:88px 72px;display:flex;flex-direction:column;gap:28px}
+.hero-top{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
+.hero-brandline{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--hero-ink-soft)}
+.hero h1{font-size:clamp(34px,5vw,50px);line-height:1.08;max-width:14ch}
+.hero-lead{font-size:18px;color:var(--hero-ink-soft);max-width:56ch;line-height:1.6}
+.hero-meta{display:flex;gap:28px;flex-wrap:wrap;margin-top:8px;border-top:1px solid var(--hero-line);padding-top:24px}
+.hero-meta div{display:flex;flex-direction:column;gap:4px}
+.hero-meta .k{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--hero-ink-soft)}
+.hero-meta .v{font-size:17px;font-weight:600;font-variant-numeric:tabular-nums}
+
+/* ---------- quicknav ---------- */
+.quicknav{background:var(--bg-sunken);border-bottom:1px solid var(--line)}
+.quicknav-inner{display:flex;gap:4px;overflow-x:auto;padding-block:10px;scrollbar-width:none}
+.quicknav-inner::-webkit-scrollbar{display:none}
+.quicknav a{
+  flex:none;font-size:13px;font-weight:600;color:var(--ink-soft);text-decoration:none;
+  padding:8px 14px;border-radius:999px;white-space:nowrap;
+}
+.quicknav a:hover{background:var(--surface);color:var(--ink)}
+
+/* ---------- stat tiles ---------- */
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-top:36px}
+.stat{background:var(--surface);padding:24px 20px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.stat .num{font-family:var(--font-display);font-size:30px;font-weight:600;font-variant-numeric:tabular-nums;color:var(--ink)}
+.stat .num.down{color:var(--bad)}
+.stat .lbl{font-size:13px;color:var(--ink-soft)}
+@media (max-width:680px){.stat-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* ---------- chart ---------- */
+.chart-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:28px 24px 20px;margin-top:20px}
+.chart-card h3{font-size:17px;margin-bottom:4px}
+.chart-card .sub{font-size:13.5px;color:var(--ink-soft);margin-bottom:18px}
+.chart-card svg{display:block;width:100%;height:auto;overflow:visible}
+
+/* ---------- section heads ---------- */
+.sec-head{margin-bottom:28px}
+.sec-head h2{font-size:clamp(24px,3.4vw,32px);margin-top:10px}
+.sec-head .lead{margin-top:10px}
+
+/* ---------- delivered checklist ---------- */
+.done-card{background:var(--good-soft);border:1px solid var(--line);border-radius:14px;padding:28px;display:flex;flex-direction:column;gap:14px}
+.done-item{display:flex;gap:12px;align-items:flex-start}
+.done-item .tick{
+  flex:none;width:22px;height:22px;border-radius:50%;background:var(--good);color:var(--surface);
+  display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;margin-top:2px;
+}
+.done-item p{font-size:15px}
+.done-item .t{font-weight:600;display:block;margin-bottom:2px}
+.done-note{font-size:14px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:14px;margin-top:4px}
+
+/* ---------- fixes band ---------- */
+.band--fixes{background:var(--bg-sunken)}
+.fix-list{display:flex;flex-direction:column;gap:16px;margin-top:28px}
+.fix{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px 24px}
+.fix-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:10px}
+.fix-top h3{font-size:16.5px;font-family:var(--font-body);font-weight:700;max-width:46ch}
+.badge{
+  flex:none;font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  padding:4px 10px;border-radius:999px;white-space:nowrap;
+}
+.badge--critical{background:var(--bad-soft);color:var(--bad)}
+.badge--high{background:var(--warn-soft);color:var(--warn)}
+.badge--medium{background:var(--accent-soft);color:var(--accent-ink)}
+.fix p{font-size:14.5px;color:var(--ink-soft);line-height:1.6}
+.fix .fixline{margin-top:10px;padding-top:10px;border-top:1px solid var(--line);font-size:14.5px;color:var(--ink)}
+.fix .fixline b{color:var(--good)}
+
+/* ---------- opportunity grid ---------- */
+.opp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:28px}
+.opp{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.opp .stat-num{font-family:var(--font-display);font-size:22px;font-weight:600;color:var(--accent)}
+.opp .stat-lbl{font-size:13.5px;font-weight:600}
+.opp p{font-size:13.5px;color:var(--ink-soft);line-height:1.55}
+@media (max-width:680px){.opp-grid{grid-template-columns:1fr}}
+
+/* ---------- plan phases ---------- */
+.band--plan{background:var(--bg-sunken)}
+.phase-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px;align-items:stretch}
+.phase{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:14px;position:relative}
+.phase.is-now{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+.phase .ph-days{font-size:12.5px;color:var(--ink-soft);letter-spacing:.04em}
+.phase h3{font-size:17px;font-family:var(--font-body);font-weight:700}
+.phase ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px;border-top:1px solid var(--line);padding-top:12px}
+.phase li{font-size:14px;padding-left:18px;position:relative}
+.phase li::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.phase-arrow{display:none}
+@media (min-width:860px){
+  .phase-row{position:relative}
+  .phase:not(:last-child)::after{
+    content:"";position:absolute;right:-24px;top:50%;width:16px;height:16px;transform:translateY(-50%) rotate(45deg);
+    border-top:1.5px solid var(--ink-soft);border-right:1.5px solid var(--ink-soft);
+  }
+}
+@media (max-width:859px){.phase-row{grid-template-columns:1fr}}
+
+/* ---------- pricing ---------- */
+.band--price{background:var(--hero-bg);color:var(--hero-ink)}
+.price-card{background:var(--surface);color:var(--ink);border-radius:18px;padding:36px 32px;margin-top:28px}
+.price-top{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:12px;border-bottom:1px solid var(--line);padding-bottom:24px}
+.price-amount{font-family:var(--font-display);font-size:48px;font-weight:600;line-height:1}
+.price-amount span{font-family:var(--font-body);font-size:16px;font-weight:600;color:var(--ink-soft)}
+.price-name{font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
+.price-features{display:grid;grid-template-columns:repeat(2,1fr);gap:12px 24px;margin-top:24px}
+.price-features div{display:flex;gap:10px;align-items:flex-start;font-size:14.5px}
+.price-features div::before{content:"\2713";flex:none;color:var(--good);font-weight:700;margin-top:1px}
+.price-roi{margin-top:24px;padding-top:20px;border-top:1px solid var(--line);font-size:14.5px;color:var(--ink-soft);line-height:1.6}
+@media (max-width:680px){.price-features{grid-template-columns:1fr}}
+
+/* ---------- next steps ---------- */
+.steps{display:flex;flex-direction:column;gap:12px;margin-top:28px}
+.step{display:flex;gap:14px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.step .n{
+  flex:none;width:26px;height:26px;border-radius:50%;background:var(--accent-soft);color:var(--accent-ink);
+  font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;
+}
+.step p{font-size:14.5px}
+
+.contact-card{background:var(--accent-soft);border:1px solid var(--line);border-radius:14px;padding:24px;margin-top:20px;display:flex;flex-direction:column;gap:10px}
+.contact-row{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.contact-row .addr{font-size:15px;font-weight:600;font-family:var(--font-body)}
+.copy-btn{
+  font:inherit;font-size:13px;font-weight:600;color:var(--accent-ink);background:var(--surface);
+  border:1px solid var(--line);border-radius:8px;padding:7px 14px;cursor:pointer;
+}
+.copy-btn:hover{border-color:var(--accent)}
+.copy-btn:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+footer{border-top:1px solid var(--line);padding-block:32px}
+footer p{font-size:13px;color:var(--ink-soft);line-height:1.6}
+
+@media (prefers-reduced-motion:no-preference){
+  .reveal{animation:up .5s ease both}
+  @keyframes up{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+}
+</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div class="hero-top">
+      <span class="hero-brandline">Store health report &amp; growth plan</span>
+      <span class="hero-brandline">14 November 2026</span>
+    </div>
+    <h1>Uzuri Aesthetics is ready to grow &mdash; once five things are fixed.</h1>
+    <p class="hero-lead">A full audit of the Shopify store: what's working, what's quietly costing sales, and the fastest path to more orders. Every figure below comes from Uzuri's own store data or a named source.</p>
+    <div class="hero-meta">
+      <div><span class="k">Customers</span><span class="v">1,816</span></div>
+      <div><span class="k">Active products</span><span class="v">506</span></div>
+      <div><span class="k">Orders, last 30 days</span><span class="v">21</span></div>
+      <div><span class="k">At risk in abandoned carts</span><span class="v">&pound;3,400</span></div>
+    </div>
+  </div>
+</section>
+
+<nav class="quicknav">
+  <div class="wrap quicknav-inner">
+    <a href="#snapshot">Snapshot</a>
+    <a href="#delivered">Delivered</a>
+    <a href="#fixes">Urgent fixes</a>
+    <a href="#opportunities">Opportunities</a>
+    <a href="#plan">90-day plan</a>
+    <a href="#pricing">Care plan</a>
+    <a href="#next">Next steps</a>
+  </div>
+</nav>
+
+<!-- SNAPSHOT -->
+<section class="band" id="snapshot">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">01 &middot; Store health</span>
+      <h2>Demand is steady. It isn't growing.</h2>
+      <p class="lead">Uzuri has a loyal base and healthy order values, but the order count hasn't moved in a year &mdash; and November is tracking below average.</p>
+    </div>
+
+    <div class="chart-card">
+      <h3>Orders by month</h3>
+      <p class="sub">Shopify admin order counts &middot; December 2025 &ndash; 14 November 2026</p>
+      <svg viewBox="0 0 760 300" role="img" aria-label="Orders by month, December 2025 to November 2026: flat around 25 a month, no growth, November partial">
+        <!-- bars -->
+        <g id="bars"></g>
+      </svg>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat"><span class="num down">-34%</span><span class="lbl">Orders this month vs. last (21 vs. 32)</span></div>
+      <div class="stat"><span class="num">404 / 506</span><span class="lbl">Active products missing a barcode (GTIN)</span></div>
+      <div class="stat"><span class="num">72</span><span class="lbl">Active products out of stock (14%)</span></div>
+      <div class="stat"><span class="num">69</span><span class="lbl">Blog posts &mdash; none since 30 June</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- DELIVERED -->
+<section class="band band--tight" id="delivered">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">02 &middot; Just delivered</span>
+      <h2>The rewards &amp; referral programme is built and staged.</h2>
+    </div>
+    <div class="done-card">
+      <div class="done-item">
+        <span class="tick">&#10003;</span>
+        <p><span class="t">A dedicated Rewards page</span>Six ways to earn points, three redemption tiers (&pound;5 / &pound;10 / &pound;20), the &ldquo;give 10%, get &pound;20&rdquo; referral offer, and a full FAQ &mdash; designed to match the Uzuri brand.</p>
+      </div>
+      <div class="done-item">
+        <span class="tick">&#10003;</span>
+        <p><span class="t">Smile.io wired up correctly</span>Every earn action opens the rewards panel in the right place, so Instagram and Facebook follows actually register points.</p>
+      </div>
+      <div class="done-item">
+        <span class="tick">&#10003;</span>
+        <p><span class="t">Navigation updated</span>&ldquo;Rewards&rdquo; added to the header and footer, with the menu re-spaced so it still fits on one line.</p>
+      </div>
+      <div class="done-note">Staged on a private copy of the theme &mdash; invisible to customers until content is approved and the Smile.io program is configured to match. Then it's a single switch to go live.</div>
+    </div>
+  </div>
+</section>
+
+<!-- URGENT FIXES -->
+<section class="band band--fixes" id="fixes">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">03 &middot; Urgent fixes</span>
+      <h2>Five issues to clear before spending on ads.</h2>
+      <p class="lead">Three of these put advertising-platform approval at genuine risk. All five are fixable without touching the site's design.</p>
+    </div>
+    <div class="fix-list">
+
+      <div class="fix">
+        <div class="fix-top"><h3>A hijacked script domain is still loading on every page</h3><span class="badge badge--critical">Critical</span></div>
+        <p>The theme loads code from cdn.polyfill.io &mdash; a service taken over in June 2024 and used to serve malicious code, an attack that hit <a href="https://thehackernews.com/2024/06/over-110000-websites-affected-by.html">over 100,000 websites</a>. Google responded by <a href="https://www.securityweek.com/polyfill-supply-chain-attack-hits-over-100k-websites/">blocking Google Ads for e-commerce sites still loading it</a>. A 2016 jQuery build and one unidentified third-party script sit alongside it.</p>
+        <p class="fixline"><b>Fix:</b> remove all three. No design impact, no cost beyond the work.</p>
+      </div>
+
+      <div class="fix">
+        <div class="fix-top"><h3>Core ad &amp; analytics tracking is disabled by an old speed app</h3><span class="badge badge--critical">Critical</span></div>
+        <p>Shopify's standard tracking output has been replaced by a script-delaying hack from a page-speed app. Ad pixels and attribution can fire late or not at all &mdash; which quietly wastes any money spent on ads.</p>
+        <p class="fixline"><b>Fix:</b> restore native loading and remove the app that disabled it.</p>
+      </div>
+
+      <div class="fix">
+        <div class="fix-top"><h3>Most products can't compete properly on Google Shopping</h3><span class="badge badge--high">High</span></div>
+        <p>404 of 506 active products have no barcode (GTIN), 469 have no SKU. Google reports products with valid GTINs get <a href="https://www.datafeedwatch.com/blog/brand-mpn-gtin-product-identifiers-for-google-shopping">up to 40% more clicks</a> on Shopping ads. The same data feeds Meta catalogues and AI shopping assistants.</p>
+        <p class="fixline"><b>Fix:</b> batch-fill product types and SKUs now; add real GTINs from supplier packaging.</p>
+      </div>
+
+      <div class="fix">
+        <div class="fix-top"><h3>22 prescription products risk the whole ad account</h3><span class="badge badge--high">High</span></div>
+        <p>Google and Meta prohibit advertising prescription-only medicines. If these reach a shopping feed, the entire Merchant Center account can be suspended &mdash; not just those listings.</p>
+        <p class="fixline"><b>Fix:</b> exclude them from every ad channel; keep them store-only behind the consultation flow.</p>
+      </div>
+
+      <div class="fix">
+        <div class="fix-top"><h3>72 active products are out of stock</h3><span class="badge badge--medium">Medium</span></div>
+        <p>14% of the live catalogue, including the entire 58-product Colorescience range. Dead product pages lose shoppers and hurt feed standing.</p>
+        <p class="fixline"><b>Fix:</b> one decision on Colorescience &mdash; restock or unpublish &mdash; clears most of this.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- OPPORTUNITIES -->
+<section class="band" id="opportunities">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">04 &middot; Growth opportunities</span>
+      <h2>The channels already available, barely used.</h2>
+      <p class="lead">Most of this costs nothing beyond setup &mdash; these are gaps, not new spend.</p>
+    </div>
+    <div class="opp-grid">
+      <div class="opp"><span class="stat-num">~70%</span><span class="stat-lbl">Carts abandoned, industry average</span><p>23 checkouts recently, &asymp;&pound;3,400 at Uzuri's average order &mdash; with no recovery emails chasing them.</p><span class="source"><a href="https://baymard.com/blog/cart-abandonment-rate-statistics">Baymard Institute</a></span></div>
+      <div class="opp"><span class="stat-num">+56%</span><span class="stat-lbl">Repeat purchase rate for loyalty members</span><p>vs. non-members, once the rewards programme (already built) is promoted.</p><span class="source"><a href="https://blog.smile.io/ecommerce-customer-loyalty-report">Smile.io</a></span></div>
+      <div class="opp"><span class="stat-num">+40%</span><span class="stat-lbl">More Shopping clicks with valid GTINs</span><p>Fixing product data unlocks the catalogue for Google Shopping properly.</p><span class="source"><a href="https://www.datafeedwatch.com/blog/brand-mpn-gtin-product-identifiers-for-google-shopping">Google, via DataFeedWatch</a></span></div>
+      <div class="opp"><span class="stat-num">58%</span><span class="stat-lbl">Of social shoppers buy beauty products directly on-platform</span><p>Uzuri has no Meta sales channel connected yet &mdash; no Instagram or Facebook Shopping.</p><span class="source"><a href="https://www.ampagency.com/blog/a-strategic-playbook-for-winning-beauty-commerce-in-2025">AMP Agency</a></span></div>
+      <div class="opp"><span class="stat-num">+393%</span><span class="stat-lbl">YoY growth in AI-referred shopping traffic</span><p>ChatGPT and other assistants now send retail traffic that converts better than average &mdash; if product data is complete enough to be recommended.</p><span class="source"><a href="https://www.cxnetwork.com/omnichannel/news/retail-traffic-from-llms-up-393-year-on-year">Adobe, via CX Network</a></span></div>
+      <div class="opp"><span class="stat-num">+8.4%</span><span class="stat-lbl">Conversion lift from a 0.1s faster mobile site</span><p>Removing dead apps and scripts (Fix #1 and #2) speeds up every page.</p><span class="source"><a href="https://web.dev/case-studies/milliseconds-make-millions">Deloitte, for Google</a></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PLAN -->
+<section class="band band--plan" id="plan">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">05 &middot; The plan</span>
+      <h2>Fix first. Then recover. Then grow.</h2>
+      <p class="lead">The order matters &mdash; the store has to be safe and measurable before new traffic is worth paying for.</p>
+    </div>
+    <div class="phase-row">
+      <div class="phase is-now">
+        <span class="ph-days">Days 1&ndash;30</span>
+        <h3>Fix &amp; launch</h3>
+        <ul>
+          <li>Remove unsafe scripts</li>
+          <li>Restore Shopify tracking</li>
+          <li>Launch rewards &amp; referrals</li>
+          <li>Keep Rx items out of feeds</li>
+          <li>Resolve out-of-stock items</li>
+        </ul>
+      </div>
+      <div class="phase">
+        <span class="ph-days">Days 31&ndash;60</span>
+        <h3>Recover &amp; connect</h3>
+        <ul>
+          <li>Klaviyo recovery flows live</li>
+          <li>Connect Instagram Shopping</li>
+          <li>Add barcodes &amp; product types</li>
+          <li>Shop app brand page</li>
+          <li>Remove unused apps</li>
+        </ul>
+      </div>
+      <div class="phase">
+        <span class="ph-days">Days 61&ndash;90</span>
+        <h3>Grow &amp; scale</h3>
+        <ul>
+          <li>Restart the blog</li>
+          <li>AI-ready product data</li>
+          <li>Google Shopping push</li>
+          <li>Rewards promotion campaign</li>
+          <li>Monthly results review</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="band" id="pricing">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">06 &middot; Ongoing care</span>
+      <h2>One partner looking after all of it, every month.</h2>
+      <p class="lead">So Uzuri can focus on clients and treatments while the store keeps improving.</p>
+    </div>
+  </div>
+</section>
+<section class="band band--price band--tight">
+  <div class="wrap">
+    <div class="price-card">
+      <div class="price-top">
+        <div><div class="price-name">Store care plan</div><div class="price-amount">&pound;200<span>&nbsp;/ month</span></div></div>
+      </div>
+      <div class="price-features">
+        <div>Store health, security &amp; speed checks</div>
+        <div>Product uploads, edits &amp; feed upkeep</div>
+        <div>Barcodes, stock &amp; prescription-item compliance</div>
+        <div>Klaviyo recovery flows + 1 campaign/month</div>
+        <div>Rewards &amp; referral programme management</div>
+        <div>1 SEO blog article a month</div>
+        <div>Small theme &amp; content changes on request</div>
+        <div>Monthly report with next month's priorities</div>
+      </div>
+      <p class="price-roi">At an average order of &pound;150 and a typical skincare margin of roughly 35%, around four extra orders a month &mdash; a 16% lift &mdash; covers the plan. Recovered abandoned checkouts and the rewards programme alone are built to deliver that. New pages, redesigns and ad management are quoted separately.</p>
+    </div>
+  </div>
+</section>
+
+<!-- NEXT STEPS -->
+<section class="band" id="next">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">07 &middot; Next steps</span>
+      <h2>Five decisions get this moving.</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><span class="n">1</span><p>Approve the rewards page content</p></div>
+      <div class="step"><span class="n">2</span><p>Confirm the Smile.io points &amp; referral rules match the page</p></div>
+      <div class="step"><span class="n">3</span><p>Agree the monthly care plan and a start date</p></div>
+      <div class="step"><span class="n">4</span><p>Share supplier barcode (EAN) lists for the main brands</p></div>
+      <div class="step"><span class="n">5</span><p>Decide on the Colorescience range: restock or unpublish</p></div>
+    </div>
+
+    <div class="contact-card">
+      <div class="contact-row">
+        <span class="addr" id="contact-email">hello@[your-agency].com</span>
+        <button class="copy-btn" id="copy-email" type="button">Copy email</button>
+      </div>
+      <p class="source">Reply to whoever sent you this report, or get in touch using the details above, to confirm and get started.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Store figures from Uzuri Aesthetics' Shopify admin as of 14 November 2026. Industry figures are as published by each named source; several are vendor-reported and are best read as direction rather than a guarantee for this specific store.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  try{
+    var btn=document.getElementById('copy-email');
+    var email=document.getElementById('contact-email');
+    if(btn&&email){
+      btn.addEventListener('click',function(){
+        var text=email.textContent.trim();
+        if(navigator.clipboard&&navigator.clipboard.writeText){
+          navigator.clipboard.writeText(text).then(function(){
+            btn.textContent='Copied';
+            setTimeout(function(){btn.textContent='Copy email';},1600);
+          }).catch(function(){ selectText(email); });
+        } else { selectText(email); }
+      });
+    }
+    function selectText(el){
+      var range=document.createRange();
+      range.selectNodeContents(el);
+      var sel=window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+    }
+  }catch(e){}
+
+  try{
+    var data=[
+      {m:'Dec',v:14,partial:false},
+      {m:'Jan',v:33,partial:false},
+      {m:'Feb',v:22,partial:false},
+      {m:'Mar',v:25,partial:false},
+      {m:'Apr',v:29,partial:false},
+      {m:'May',v:35,partial:false},
+      {m:'Jun',v:26,partial:false},
+      {m:'Jul',v:17,partial:false},
+      {m:'Aug',v:21,partial:false},
+      {m:'Sep',v:31,partial:false},
+      {m:'Oct',v:25,partial:false},
+      {m:'Nov',v:7,partial:true}
+    ];
+    var svg=document.querySelector('.chart-card svg');
+    var g=document.getElementById('bars');
+    if(svg&&g){
+      var W=760,Hc=300,top=20,base=240,left=18,right=18;
+      var full=data.filter(function(d){return !d.partial;});
+      var avg=full.reduce(function(s,d){return s+d.v;},0)/full.length;
+      var peak=Math.max.apply(null,data.map(function(d){return d.v;}))+5;
+      var band=(W-left-right)/data.length;
+      var barW=band*0.52;
+      var y=function(v){return base-(v/peak)*(base-top);};
+
+      var ns='http://www.w3.org/2000/svg';
+      function el(tag,attrs){
+        var e=document.createElementNS(ns,tag);
+        for(var k in attrs){e.setAttribute(k,attrs[k]);}
+        return e;
+      }
+
+      // average reference line
+      var refY=y(avg);
+      g.appendChild(el('line',{x1:left,x2:W-right,y1:refY,y2:refY,stroke:'var(--chart-ref)','stroke-dasharray':'4 4','stroke-width':'1'}));
+      var refLabel=el('text',{x:left,y:refY-8,'font-size':'11','fill':'var(--chart-ref)'});
+      refLabel.textContent='average '+Math.round(avg)+'/mo';
+      g.appendChild(refLabel);
+
+      data.forEach(function(d,i){
+        var cx=left+i*band+band/2;
+        var by=y(d.v);
+        var rect=el('rect',{
+          x:cx-barW/2,y:by,width:barW,height:base-by,rx:'3',
+          fill:d.partial?'var(--chart-bar)':'var(--chart-bar-strong)',
+          'fill-opacity':d.partial?'0.55':'1'
+        });
+        var t=document.createElementNS(ns,'title');
+        t.textContent=d.m+(d.partial?' (to 14 Nov): ':': ')+d.v+' orders';
+        rect.appendChild(t);
+        g.appendChild(rect);
+
+        var val=el('text',{x:cx,y:by-8,'text-anchor':'middle','font-size':'12','font-weight':'600','fill':'var(--ink)'});
+        val.setAttribute('style','font-variant-numeric:tabular-nums');
+        val.textContent=d.v;
+        g.appendChild(val);
+
+        var lbl=el('text',{x:cx,y:base+18,'text-anchor':'middle','font-size':'11','fill':'var(--ink-soft)'});
+        lbl.textContent=d.m;
+        g.appendChild(lbl);
+      });
+
+      g.appendChild(el('line',{x1:left,x2:W-right,y1:base,y2:base,stroke:'var(--chart-grid)','stroke-width':'1'}));
+    }
+  }catch(e){}
+})();
+</script>
